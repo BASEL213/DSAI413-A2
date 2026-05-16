@@ -15,14 +15,20 @@ class ColPaliRetriever:
     MODEL_NAME = "vidore/colpali-v1.3"
     BATCH_SIZE = 1
 
-    def __init__(self, device: str = "cuda"):
+    def __init__(self, device: str = "auto"):
+        import gc
         from colpali_engine.models import ColPali, ColPaliProcessor
 
-        self.device = device
+        # Free any lingering GPU memory before loading the large model
+        gc.collect()
+        torch.cuda.empty_cache()
+
+        self.device = "cuda" if device == "auto" and torch.cuda.is_available() else device
         self.model = ColPali.from_pretrained(
             self.MODEL_NAME,
             torch_dtype=torch.bfloat16,
-            device_map=device,
+            device_map="auto",          # lets HF decide CPU/GPU split if VRAM is tight
+            low_cpu_mem_usage=True,
         ).eval()
         self.processor = ColPaliProcessor.from_pretrained(self.MODEL_NAME)
         self.image_embeddings = None  # Will hold (N, num_patches, dim)
@@ -88,13 +94,23 @@ class ColPaliRetriever:
 
     @classmethod
     def from_index(cls, index_dir: str) -> "ColPaliRetriever":
-        instance = cls.__new__(cls)
+        import gc
         from colpali_engine.models import ColPali, ColPaliProcessor
-        instance.device = "cuda"
+
+        gc.collect()
+        torch.cuda.empty_cache()
+
+        instance = cls.__new__(cls)
+        instance.device = "cuda" if torch.cuda.is_available() else "cpu"
         instance.model = ColPali.from_pretrained(
-            cls.MODEL_NAME, torch_dtype=torch.bfloat16, device_map="cuda"
+            cls.MODEL_NAME,
+            torch_dtype=torch.bfloat16,
+            device_map="auto",
+            low_cpu_mem_usage=True,
         ).eval()
         instance.processor = ColPaliProcessor.from_pretrained(cls.MODEL_NAME)
+        instance.image_embeddings = None
+        instance.image_paths = []
         instance.load_index(index_dir)
         return instance
 
