@@ -1,0 +1,31 @@
+# Install in Colab in this order to avoid conflicts
+# pip install -q colpali-engine byaldi
+# pip install -q "transformers>=4.45.0" accelerate bitsandbytes
+# pip install -q open-clip-torch faiss-gpu
+# pip install -q bert-score radgraph rouge-score
+# pip install -q sentence-transformers
+# pip install -q groq python-dotenv pyyaml
+# pip install -q streamlit
+
+colpali-engine>=0.3.1
+byaldi>=0.0.4
+transformers>=4.45.0
+accelerate>=0.33.0
+bitsandbytes>=0.43.3
+open-clip-torch>=2.26.1
+faiss-cpu>=1.8.0
+bert-score>=0.3.13
+radgraph>=0.0.5
+rouge-score>=0.1.2
+sentence-transformers>=3.1.1
+groq>=0.9.0
+python-dotenv>=1.0.1
+pyyaml>=6.0.2
+Pillow>=10.4.0
+pandas>=2.2.2
+numpy>=1.26.4
+tqdm>=4.66.5
+streamlit>=1.38.0
+torch>=2.3.1
+torchvision>=0.18.1
+spaces>=0.30.0

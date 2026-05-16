@@ -1,0 +1,847 @@
+study_id,reference,colpali_pred,clip_pred,direct_pred
+3890,No acute cardiopulmonary abnormality. .,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The heart size is normal. The mediastinum is unremarkable.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: No acute bony abnormality. The soft tissues are unremarkable.","FINDINGS:
+- Lungs: Low lung volumes. No focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: Borderline heart size. Calcified aorta.
+- Pleura: No pleural effusion.
+- Bones and Soft Tissues: No acute bony abnormality. Probable large retrocardiac hiatal hernia.
+
+IMPRESSION:
+Low lung volumes. No acute cardiopulmonary abnormalities. Probable large retrocardiac hiatal hernia.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+1418,No comparison chest x-XXXX. Well-expanded and clear lungs. Mediastinal contour within normal limits. No acute cardiopulmonary abnormality identified.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The heart size is normal. The mediastinum is unremarkable.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax is identified.
+- Bones and Soft Tissues: The visualized bones are unremarkable. No acute soft tissue abnormality is identified.
+
+IMPRESSION:
+No acute findings.","FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The heart size is normal. The mediastinum is unremarkable. The visualized osseous structures are intact. IMPRESSION:
+No acute cardiopulmonary abnormalities.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, atelectasis, or nodules.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: The pleural spaces are clear. There is no evidence of pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable."
+3821,No acute cardiopulmonary abnormality.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality is identified.","FINDINGS:
+- Lungs: Low lung volumes. No focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is mildly enlarged. The mediastinal contours are normal.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality.
+
+IMPRESSION:
+Low lung volumes. No acute cardiopulmonary abnormalities.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pneumothorax, or pleural effusion is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+3134,No acute cardiopulmonary disease,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The heart size is normal. The mediastinum is unremarkable.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no pleural effusion.
+- Bones and Soft Tissues: The visualized bones are intact. The soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The heart size is normal. The mediastinal contours are normal. The visualized osseous structures are unremarkable.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: No pleural effusion or pneumothorax is identified.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No soft tissue abnormalities are identified.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, atelectasis, or nodules.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: The pleural spaces are clear. There is no evidence of pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable."
+1748,No acute cardiopulmonary findings.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: No acute bony abnormality.
+
+IMPRESSION:
+No acute radiographic cardiopulmonary process.","FINDINGS:
+- Lungs: The lungs are clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is normal.
+- Pleura: There is no pleural effusion.
+- Bones and Soft Tissues: The bones are normal. The soft tissues are normal.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pneumothorax, or pleural effusion is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+172,1. Heart size upper limits of normal with clear lungs. 2. Age-indeterminate XXXX deformity of an upper lumbar spine vertebral body.,"FINDINGS:
+- Lungs: Clear right lung. There is extensive airspace disease in the left base.
+- Heart and Mediastinum: The heart size is borderline enlarged. The mediastinum is unremarkable.
+- Pleura: No large effusion or pneumothorax.
+- Bones and Soft Tissues: The left diaphragm is elevated. The tracheostomy tube tip is above the carina. The visualized bones are unremarkable.","FINDINGS:
+- Lungs: Low lung volumes. No focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart appears enlarged. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized bones appear intact. No acute soft tissue abnormality.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pneumothorax, or pleural effusion is identified.
+- Heart and Mediastinum: The heart is mildly enlarged. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures appear unremarkable.
+
+IMPRESSION:
+Mild cardiomegaly."
+1859,"Hiatal hernia as before. Scattered right upper lung scarring as before. Overall, Well-expanded and clear lungs. Mediastinal contour within normal limits. No acute cardiopulmonary abnormality identified.","FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The heart size is normal. The mediastinum is unremarkable.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized bones are intact. No soft tissue abnormalities are identified.
+
+IMPRESSION:
+No acute cardiopulmonary process.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No evidence of pleural effusion.
+- Bones and Soft Tissues: The visualized bones appear intact. No acute soft tissue abnormalities are identified.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, atelectasis, or nodules.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: There is no evidence of pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable."
+1031,"Heart size mildly enlarged for technique, mediastinal contours appear similar to prior, right chest XXXX tip in the high SVC. No focal alveolar consolidation, no definite pleural effusion seen. Bronchovascular crowding without typical findings of pulmonary edema.","FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax. There is no evidence of pulmonary edema.
+- Heart and Mediastinum: The heart is enlarged. The mediastinum is unremarkable.
+- Pleura: The pleural surfaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. A right-sided central venous catheter is present.","FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized bones and soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pneumothorax, or pleural effusion.
+- Heart and Mediastinum: The heart is mildly enlarged. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized bones and soft tissues are unremarkable.
+
+IMPRESSION:
+Mild cardiomegaly. No acute pulmonary process."
+3551,No acute findings,"FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no evidence of pleural effusion.
+- Bones and Soft Tissues: The visualized bones are unremarkable. There is no evidence of pneumothorax.
+
+IMPRESSION:
+No acute cardiopulmonary process.","FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormalities are identified.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pneumothorax, or pleural effusion is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized bones appear intact. No obvious soft tissue abnormalities are identified.
+
+IMPRESSION:
+Normal chest X-ray."
+3157,Normal chest,"FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified. The heart size is normal. The mediastinum is unremarkable. No acute bony abnormalities are identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax is identified.
+- Bones and Soft Tissues: No acute bony abnormalities are identified.
+
+IMPRESSION:
+No acute radiographic cardiopulmonary process.","FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The heart size is normal. The mediastinum is unremarkable. The visualized osseous structures are intact. No acute cardiopulmonary abnormalities are identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax is identified.
+- Bones and Soft Tissues: The visualized osseous structures are intact. No acute cardiopulmonary abnormalities are identified.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, atelectasis, or nodules.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: The pleural spaces are clear. There is no evidence of pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable."
+3882,"Generalized low lung lungs with eventration of the left hemidiaphragm. Question concomitant left basilar opacity, may represent atelectasis or infiltrate.","FINDINGS:
+- Lungs: There is increased opacity in the lower lung fields, particularly on the left. The right lung appears relatively clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no evidence of pleural effusion.
+- Bones and Soft Tissues: The visualized bones appear normal. There is no evidence of pneumothorax.
+
+IMPRESSION:
+There is increased opacity in the lower lung fields, particularly on the left. This could be due to a variety of causes, including pneumonia, atelectasis, or pulmonary edema. Further evaluation is needed to determine the underlying cause.","FINDINGS:
+- Lungs: There is increased opacity in the lower lung fields, particularly in the left lower lobe, which may represent atelectasis or consolidation. The right lung is clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no evidence of pleural effusion.
+- Bones and Soft Tissues: There is no evidence of pneumothorax. There is a fracture of the T6 vertebral body.
+
+IMPRESSION:
+There is increased opacity in the lower lung fields, particularly in the left lower lobe, which may represent atelectasis or consolidation. The right lung is clear. There is a fracture of the T6 vertebral body.","FINDINGS:
+- Lungs: There is increased opacity in the lower lung fields, particularly on the left, which may represent atelectasis or consolidation. The right lung appears relatively clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are unremarkable.
+- Pleura: There is a small left pleural effusion.
+- Bones and Soft Tissues: The visualized bony structures appear unremarkable.
+
+IMPRESSION:
+Atelectasis or consolidation in the lower lung fields, particularly on the left, with a small left pleural effusion."
+950,No acute cardiopulmonary abnormalities.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality is identified.","FINDINGS:
+- Lungs: Clear. No evidence of consolidation or pneumothorax.
+- Heart and Mediastinum: Borderline heart size. Calcified aorta.
+- Pleura: No evidence of pleural effusion.
+- Bones and Soft Tissues: No evidence of acute osseous abnormality. Probable large retrocardiac hiatal hernia.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pneumothorax, or pleural effusion is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures appear unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+2098,No acute cardiopulmonary findings.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The heart size is normal. The mediastinum is unremarkable. The visualized osseous structures are intact. No acute findings.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: No acute findings.
+
+IMPRESSION:
+No acute findings. cardiac enlargement.","FINDINGS:
+- Lungs: The lungs are clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is normal.
+- Pleura: There is no pleural effusion.
+- Bones and Soft Tissues: The bones are normal. The soft tissues are normal.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, atelectasis, or nodules.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: The pleural spaces are clear. There is no evidence of pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable."
+3253,No acute cardiopulmonary disease.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality is identified.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no evidence of pleural effusion.
+- Bones and Soft Tissues: The visualized bones and soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, atelectasis, or nodules.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: The pleural spaces are clear. There is no evidence of pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable."
+2058,No acute disease.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality is identified.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural surfaces are clear.
+- Bones and Soft Tissues: The visualized bones and soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+2405,Right apical scarring as before. Right midlung granuloma. No suspicious appearing nodules identified. Well-expanded and clear lungs. Mediastinal contour within normal limits. No acute cardiopulmonary abnormality identified.,"FINDINGS:
+- Lungs: There is a nodular opacity in the right mid-lung field. The lungs are otherwise clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is normal.
+- Pleura: There is no pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The bones are normal. The soft tissues are normal.","FINDINGS:
+- Lungs: There is a nodular opacity in the right mid-lung field. The lungs are otherwise clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized bones and soft tissues are unremarkable.","FINDINGS:
+- Lungs: There is a nodular opacity in the right mid-lung field. The left lung is clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal.
+- Pleura: There is no pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable."
+103,XXXX prominence of the mediastinal contour near the right hilum possibly representing the ascending aorta or mediastinal lymphadenopathy. CT chest with contrast may be helpful for further evaluation.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The heart size is normal. The mediastinum is unremarkable.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality.","FINDINGS:
+- Lungs: Clear.
+- Heart and Mediastinum: The heart appears mildly enlarged. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: No acute abnormality.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+3771,Left knee. Moderately severe medial joint space narrowing and spurring. Chest. Heart size normal. Lungs clear.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The heart size is normal. The mediastinum is unremarkable.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: No acute abnormality. Dextroscoliosis of thoracic spine.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: The pleura is unremarkable.
+- Bones and Soft Tissues: The bones and soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+2808,Clear lungs.,"FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax is identified.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality is identified.","FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality is identified.
+
+IMPRESSION:
+No acute cardiopulmonary process.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+3499,"Comparison XXXX, XXXX. Well-expanded and clear lungs. Mediastinal contour within normal limits. No acute cardiopulmonary abnormality identified. chest.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no evidence of pleural effusion.
+- Bones and Soft Tissues: The visualized bones are unremarkable. There is no evidence of pneumothorax.
+
+IMPRESSION:
+No acute cardiopulmonary abnormality.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no evidence of pleural effusion.
+- Bones and Soft Tissues: The visualized bones and soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, atelectasis, or nodules.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: There is no evidence of pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable."
+3621,XXXX change. Hypoinflation with no visible active cardiopulmonary disease.,"FINDINGS:
+- Lungs: The lungs are hyperinflated with air trapping. There is no focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The bones are intact. No soft tissue abnormalities are identified.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of pneumothorax or pneumomediastinum.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: The pleural surfaces are clear.
+- Bones and Soft Tissues: The visualized bones and soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, atelectasis, or nodules.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: There is no evidence of pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+275,No acute cardiopulmonary abnormality.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality is identified.","FINDINGS:
+- Lungs: Low lung volumes. No focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: Mild cardiomegaly. Vascular redistribution.
+- Pleura: No pleural effusion.
+- Bones and Soft Tissues: No acute abnormality.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+110,Negative preoperative chest x-XXXX.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality is identified.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: The pleural surfaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormalities are identified.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+1572,1. No acute radiographic cardiopulmonary process.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. There are surgical clips in the right axilla.
+
+IMPRESSION:
+No acute radiographic cardiopulmonary process.","FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized bones are intact. There are surgical clips in the right axilla.
+
+IMPRESSION:
+No acute cardiopulmonary findings.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pneumothorax, or pleural effusion is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+1569,No acute pulmonary disease.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The heart size is normal. The mediastinum is unremarkable.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: No acute bony abnormality. The soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no evidence of pleural effusion.
+- Bones and Soft Tissues: The bones are unremarkable. There is no evidence of soft tissue abnormality.","FINDINGS:
+- Lungs: The lung fields are clear. No opacity, consolidation, or atelectasis is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: The pleural spaces are clear. No effusion or pneumothorax is identified.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable."
+1798,Heart size is normal. Lungs are clear. Calcified left midlung 5 mm granuloma and left hilar granulomas. No effusions. No nodules or masses. No pneumonia. No bony abnormalities. Status post left shoulder replacement.,"FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax is identified.
+- Bones and Soft Tissues: A prosthetic right shoulder is identified. No acute bony abnormality is identified.
+
+IMPRESSION:
+No acute radiographic cardiopulmonary process. Chronic changes as described, no acute findings.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: The pleural surfaces are clear.
+- Bones and Soft Tissues: There is a right shoulder prosthesis. There is a left-sided bullet over the left chest. The visualized bones are unremarkable.
+
+IMPRESSION:
+No acute cardiopulmonary abnormality.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized bones appear intact. A prosthetic right shoulder is noted.
+
+IMPRESSION:
+Normal chest X-ray."
+631,Moderate hypoinflation with associated bibasilar atelectasis.,"FINDINGS:
+- Lungs: The lungs are clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no pleural effusion.
+- Bones and Soft Tissues: The bones are unremarkable. There is a right-sided central venous catheter.
+
+IMPRESSION:
+No acute radiographic cardiopulmonary process.","FINDINGS:
+- Lungs: The lungs are clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no pleural effusion.
+- Bones and Soft Tissues: The visualized bones are unremarkable.
+
+IMPRESSION:
+No acute disease.","FINDINGS:
+- Lungs: The lung volumes are low, resulting in increased prominence of the cardiac silhouette and pulmonary vasculature. There is no focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are unremarkable.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized bony structures appear intact.
+
+IMPRESSION:
+Low lung volumes. No acute pulmonary process."
+674,"No acute abnormality. Low volumes XXXX XXXX for the opportunity to assist in the care of your patient. If there are any questions about this examination please XXXX. XXXX XXXX, XXXX certified radiologist, at XXXX. .","FINDINGS:
+- Lungs: There is a diffuse bilateral hazy opacity in the lung fields.
+- Heart and Mediastinum: The heart size is within normal limits. The mediastinum is unremarkable.
+- Pleura: There is no evidence of pleural effusion.
+- Bones and Soft Tissues: There is a comminuted fracture of the left clavicle. There is mild superior subluxation of the humerus on the glenoid.
+
+IMPRESSION:
+Diffuse bilateral hazy opacity in the lung fields. Comminuted fracture of the left clavicle. Mild superior subluxation of the humerus on the glenoid.","FINDINGS:
+- Lungs: There is increased opacity in the lower lung fields bilaterally, suggestive of possible pneumonia.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no evidence of pleural effusion.
+- Bones and Soft Tissues: The visualized bones and soft tissues are unremarkable.","FINDINGS:
+- Lungs: There is increased opacity in the lower lung fields, particularly in the right lung.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal.
+- Pleura: There is no pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The bones appear intact. The soft tissues are unremarkable."
+1849,No acute cardiopulmonary findings.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The heart size is normal. The mediastinum is unremarkable. The visualized osseous structures are intact. No acute findings.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: No acute findings.
+
+IMPRESSION:
+No acute findings. cardiac enlargement.","FINDINGS:
+- Lungs: The lungs are clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is normal.
+- Pleura: There is no pleural effusion.
+- Bones and Soft Tissues: The bones are normal. The soft tissues are normal.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pneumothorax, or pleural effusion is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures appear unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+3507,No acute radiographic cardiopulmonary process. .,"FINDINGS:
+- Lungs: The lungs are clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is normal.
+- Pleura: There is no pleural effusion.
+- Bones and Soft Tissues: The bones are normal. The soft tissues are normal.","FINDINGS:
+- Lungs: The lungs are clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is normal.
+- Pleura: There is no pleural effusion.
+- Bones and Soft Tissues: The bones are normal. The soft tissues are normal.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized bones appear intact. The soft tissues are unremarkable."
+2296,1. No acute cardiopulmonary finding. 2. Hiatal hernia.,"FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: The pleural surfaces are clear.
+- Bones and Soft Tissues: The visualized bones and soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is normal.
+- Pleura: There is a large right pleural effusion.
+- Bones and Soft Tissues: The bones are normal. The soft tissues are normal.","FINDINGS:
+- Lungs: The lungs are clear. No consolidation, nodules, or masses are identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: The pleural spaces are clear. No pleural effusion or pneumothorax is identified.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable."
+2404,"Heart size within normal limits, mediastinal contours, mediastinal surgical clips, mediastinal and right hilar calcifications suggest a previous granulomatous process. Improved lung volumes, XXXX left base opacities most suggestive of scarring. No focal alveolar consolidation, no definite pleural effusion seen. Bronchovascular crowding without typical findings of pulmonary edema.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: The pleural surfaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormalities are identified.","FINDINGS:
+- Lungs: There is a hazy opacity in the left lower lung field. The right lung is clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no evidence of pleural effusion.
+- Bones and Soft Tissues: The visualized bones are unremarkable.
+
+IMPRESSION:
+Left lower lung opacity, possibly atelectasis.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, atelectasis, or nodules.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: There is no evidence of pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable."
+433,Heart size normal. Lungs clear.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The heart size is normal. The mediastinum is unremarkable. The visualized osseous structures are intact. No acute cardiopulmonary process is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax is identified.
+- Bones and Soft Tissues: The visualized osseous structures are intact. No acute cardiopulmonary process is identified.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified.
+- Heart and Mediastinum: The heart size is within normal limits for the technique. The mediastinum is unremarkable.
+- Pleura: No pleural effusion is identified.
+- Bones and Soft Tissues: The visualized osseous structures appear unremarkable. No acute soft tissue abnormality is identified.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, atelectasis, or nodules.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: There is no evidence of pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable."
+1252,"Heart size is upper limits normal and lungs are clear. No pneumonia, edema, or effusions.","FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is mildly enlarged. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax is identified.
+- Bones and Soft Tissues: There is no evidence of acute osseous abnormality.
+
+IMPRESSION:
+Mild cardiomegaly. No acute cardiopulmonary process.","FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is mildly enlarged. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality is identified.
+
+IMPRESSION:
+No acute cardiopulmonary process.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pneumothorax, or pleural effusion.
+- Heart and Mediastinum: The heart is mildly enlarged. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized bones and soft tissues appear normal."
+2466,No acute cardiopulmonary abnormalities.,"FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax is identified.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality is identified.","FINDINGS:
+- Lungs: Clear. No evidence of consolidation or pneumothorax.
+- Heart and Mediastinum: Borderline heart size. Calcified aorta.
+- Pleura: No evidence of pleural effusion.
+- Bones and Soft Tissues: No evidence of acute abnormality. Probable large retrocardiac hiatal hernia.
+
+IMPRESSION:
+No evidence of active disease. Probable large retrocardiac hiatal hernia.","FINDINGS:
+- Lungs: The lung fields are clear. No opacity, consolidation, or atelectasis is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: The pleural spaces are clear. No effusion or pneumothorax is identified.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable."
+3149,Lung hyperexpansion. No focal air space disease.,"FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: The pleural surfaces are clear.
+- Bones and Soft Tissues: The visualized bones and soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is mildly enlarged. The mediastinum is unremarkable.
+- Pleura: The pleural surfaces are clear.
+- Bones and Soft Tissues: The visualized bones and soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, atelectasis, or nodules.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: The pleural spaces are clear. There is no evidence of pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable."
+1834,Normal chest No evidence of tuberculosis,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality is identified.","FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality is identified.
+
+IMPRESSION:
+No acute cardiopulmonary findings.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+3483,No evidence of active disease.,"FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: The pleural surfaces are clear.
+- Bones and Soft Tissues: The visualized bones appear intact. No acute soft tissue abnormalities are identified.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: No pleural effusion is identified.
+- Bones and Soft Tissues: The visualized bones appear normal. No acute soft tissue abnormality is identified.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pneumothorax, or pleural effusion is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures appear unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+3927,position of the aortic stent with a normal cardiac silhouette and clear lungs.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The heart size is normal. The mediastinum is unremarkable.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality is identified.
+
+IMPRESSION:
+No acute cardiopulmonary process.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural surfaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. The soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pneumothorax, or pleural effusion is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+2248,No acute abnormality.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality is identified.","FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality is identified.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pneumothorax, or pleural effusion is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+3364,Borderline heart size. Tortuous calcified aorta. Elevated right diaphragm. Prominent hilar contours bilaterally. No acute pulmonary consolidation or pleural effusion.,"FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: The pleural surfaces are clear.
+- Bones and Soft Tissues: The visualized bones and soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized bones and soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pneumothorax, or pleural effusion.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized bones and soft tissues appear normal.
+
+IMPRESSION:
+Normal chest X-ray."
+3795,No acute changes from prior imaging.,"FINDINGS:
+- Lungs: The lungs are clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is normal.
+- Pleura: There is no pleural effusion.
+- Bones and Soft Tissues: There is a spinal fusion device in the thoracic spine. There is a scoliosis.
+
+IMPRESSION:
+No acute findings. Chronic changes as described, no acute findings.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: The pleural surfaces are clear.
+- Bones and Soft Tissues: There is a spinal fusion device in the thoracic spine. The soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, atelectasis, or nodules.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: There is no evidence of pleural effusion or pneumothorax.
+- Bones and Soft Tissues: There is a spinal fusion device in the thoracic spine. The ribs and clavicles are unremarkable. The soft tissues are unremarkable."
+3416,No acute cardiopulmonary abnormality.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax. There is no evidence of pulmonary edema.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no evidence of pleural effusion.
+- Bones and Soft Tissues: There is a small nodule in the left lung. There is a surgical screw in the right humerus. The visualized bones are otherwise unremarkable.
+
+IMPRESSION:
+No acute cardiopulmonary process.","FINDINGS:
+- Lungs: Low lung volumes. No focal consolidation, pleural effusion, or pneumothorax. A small nodule is seen in the left upper lobe.
+- Heart and Mediastinum: The heart size is mildly enlarged. The mediastinal contours are normal.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures appear normal. A metallic density is seen in the right humeral head.
+
+IMPRESSION:
+Low lung volumes. No acute cardiopulmonary abnormalities. A small nodule is seen in the left upper lobe.","FINDINGS:
+- Lungs: The lungs are clear. There is a small nodule in the left upper lobe.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: There is no pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. There is a surgical screw in the right humerus.
+
+IMPRESSION:
+Small nodule in the left upper lobe."
+484,Hypoinflation without acute disease.,"FINDINGS:
+- Lungs: The lungs are clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no pleural effusion or pneumothorax.
+- Bones and Soft Tissues: There is a dextroscoliosis of the thoracic spine. The visualized bones are unremarkable.
+
+IMPRESSION:
+No acute cardiopulmonary process. Chronic changes as described, no acute findings.","FINDINGS:
+- Lungs: Clear. No focal consolidation or pleural effusion.
+- Heart and Mediastinum: The heart size is borderline. The mediastinum is unremarkable.
+- Pleura: No pleural effusion.
+- Bones and Soft Tissues: Scoliosis.
+
+IMPRESSION:
+Clear lungs. Scoliosis.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, atelectasis, or nodules.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: There is no evidence of pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+2519,mild cardiomegaly. No acute pulmonary abnormality.,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: No acute bony abnormality.
+
+IMPRESSION:
+No acute cardiopulmonary process.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pneumothorax, or pleural effusion.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no evidence of pleural effusion.
+- Bones and Soft Tissues: The visualized bones and soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pneumothorax, or pleural effusion is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures appear unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+1446,Further fibrosis and collapse of the left upper lobe with left apical pleural thickening. No evidence of recurrence. Heart size normal. No effusion.,"FINDINGS:
+- Lungs: There is a large opacity in the left upper lobe, with associated volume loss. There is a small opacity in the right lower lobe.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is normal.
+- Pleura: There is no pleural effusion.
+- Bones and Soft Tissues: The bones are normal. The soft tissues are normal.","FINDINGS:
+- Lungs: There is a large opacity in the left upper lobe, with associated volume loss. There is a small opacity in the right lower lobe.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is normal.
+- Pleura: There is no evidence of pleural effusion.
+- Bones and Soft Tissues: There is no evidence of rib fracture.
+
+IMPRESSION:
+Large opacity in the left upper lobe with associated volume loss, suggestive of a mass. Small opacity in the right lower lobe.","FINDINGS:
+- Lungs: There is a large opacity in the left upper lobe, suggestive of consolidation or atelectasis. The right lung is clear.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal.
+- Pleura: There is no pleural effusion.
+- Bones and Soft Tissues: The bones appear normal.
+
+IMPRESSION:
+Large opacity in the left upper lobe, suggestive of consolidation or atelectasis."
+3235,Normal chest exam.,"FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax is identified.
+- Bones and Soft Tissues: The visualized bones and soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable. No acute soft tissue abnormality is identified.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pleural effusion, or pneumothorax is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures are unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."
+2241,"No acute findings. Biapical opacities, XXXX scarring.","FINDINGS:
+- Lungs: The lungs are hyperinflated. There is a nodular opacity in the right upper lobe.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is normal.
+- Pleura: There is no pleural effusion.
+- Bones and Soft Tissues: The bones are normal. There is a port-a-cath in the right upper chest.
+
+IMPRESSION:
+Hyperinflated lungs with a nodular opacity in the right upper lobe.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: The pleural surfaces are clear.
+- Bones and Soft Tissues: The visualized bones and soft tissues are unremarkable.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, atelectasis, or nodules.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: The pleural spaces are clear. There is no evidence of pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable.
+
+IMPRESSION:
+No acute cardiopulmonary process."
+953,No acute cardiopulmonary abnormalities.,"FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no evidence of pleural effusion.
+- Bones and Soft Tissues: The bones are intact. There is no evidence of soft tissue abnormality.","FINDINGS:
+- Lungs: Clear. No evidence of active pulmonary edema or lobar pneumonia.
+- Heart and Mediastinum: Borderline heart size. Calcified aorta. Probable large retrocardiac hiatal hernia.
+- Pleura: No evidence of pleural effusion.
+- Bones and Soft Tissues: No evidence of acute abnormality.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, atelectasis, or nodules.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contour is normal. The vascular pedicle is normal.
+- Pleura: There is no evidence of pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The ribs, clavicles, and spine are unremarkable. The soft tissues are unremarkable."
+3956,No acute disease,"FINDINGS:
+- Lungs: The lungs are clear without focal consolidation, pleural effusion, or pneumothorax. The heart size is normal. The mediastinum is unremarkable.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: No pleural effusion or pneumothorax.
+- Bones and Soft Tissues: The visualized bones are intact. No soft tissue abnormalities are identified.","FINDINGS:
+- Lungs: The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.
+- Heart and Mediastinum: The heart size is normal. The mediastinum is unremarkable.
+- Pleura: There is no evidence of pleural effusion.
+- Bones and Soft Tissues: There is no evidence of acute fracture or dislocation. The soft tissues are unremarkable.
+
+IMPRESSION:
+The lungs are clear. There is no evidence of consolidation, pleural effusion, or pneumothorax.","FINDINGS:
+- Lungs: The lungs are clear. No focal consolidation, pneumothorax, or pleural effusion is identified.
+- Heart and Mediastinum: The heart size is normal. The mediastinal contours are normal.
+- Pleura: The pleural spaces are clear.
+- Bones and Soft Tissues: The visualized osseous structures appear unremarkable.
+
+IMPRESSION:
+Normal chest X-ray."

@@ -1,0 +1,27 @@
+.env
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+*.egg-info/
+dist/
+build/
+.ipynb_checkpoints/
+data/raw/
+data/processed/*.csv
+data/processed/*.jsonl
+data/indices/
+ERRORS.md
+VIDEO_SCRIPT.md
+*.bin
+*.safetensors
+*.gguf
+models/
+# Dataset images (too large for git)
+data/images/
+chest_xray/
+# Index artifacts (too large for git — upload to HF Dataset separately)
+*.pt
+*.faiss
+*.pkl
+*.index
