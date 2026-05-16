@@ -15,23 +15,21 @@ class ColPaliRetriever:
     MODEL_NAME = "vidore/colpali-v1.3"
     BATCH_SIZE = 1
 
-    def __init__(self, device: str = "auto"):
+    def __init__(self, device: str = "cuda"):
         import gc
         from colpali_engine.models import ColPali, ColPaliProcessor
 
-        # Free any lingering GPU memory before loading the large model
         gc.collect()
         torch.cuda.empty_cache()
 
-        self.device = "cuda" if device == "auto" and torch.cuda.is_available() else device
+        self.device = device if torch.cuda.is_available() else "cpu"
         self.model = ColPali.from_pretrained(
             self.MODEL_NAME,
             torch_dtype=torch.bfloat16,
-            device_map="auto",          # lets HF decide CPU/GPU split if VRAM is tight
-            low_cpu_mem_usage=True,
+            device_map=self.device,
         ).eval()
         self.processor = ColPaliProcessor.from_pretrained(self.MODEL_NAME)
-        self.image_embeddings = None  # Will hold (N, num_patches, dim)
+        self.image_embeddings = None
         self.image_paths: List[str] = []
 
     def build_index(self, images_dir: str = None, image_paths: List[str] = None, index_save_dir: str = None):
@@ -105,8 +103,7 @@ class ColPaliRetriever:
         instance.model = ColPali.from_pretrained(
             cls.MODEL_NAME,
             torch_dtype=torch.bfloat16,
-            device_map="auto",
-            low_cpu_mem_usage=True,
+            device_map=instance.device,
         ).eval()
         instance.processor = ColPaliProcessor.from_pretrained(cls.MODEL_NAME)
         instance.image_embeddings = None
