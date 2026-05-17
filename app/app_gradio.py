@@ -53,15 +53,25 @@ def download_indexes():
     print("✓ Indexes downloaded")
 
 
-download_indexes()
+# Only auto-download when running on HF Spaces (INDEX_REPO env var set).
+# When running from a Kaggle notebook the indexes are injected directly.
+if os.environ.get("INDEX_REPO", ""):
+    try:
+        download_indexes()
+    except Exception as e:
+        print(f"⚠ Index download skipped: {e}")
 
-# Load corpus — supports both study_id and image_path keying
-CORPUS_PATH = os.path.join(INDEX_DIR, "reports_corpus.csv")
-corpus_df = pd.read_csv(CORPUS_PATH)
-
-# Build two lookup dicts so both keying strategies work
+# Corpus lookup dicts — populated here or overridden by the notebook cell
 _study_id_to_impression: dict[str, str] = {}
 _path_to_impression: dict[str, str] = {}
+
+CORPUS_PATH = os.path.join(INDEX_DIR, "reports_corpus.csv")
+if os.path.exists(CORPUS_PATH):
+    _corpus_df = pd.read_csv(CORPUS_PATH)
+    if "study_id" in _corpus_df.columns:
+        _study_id_to_impression = dict(zip(_corpus_df["study_id"].astype(str), _corpus_df["impression"]))
+    if "image_path" in _corpus_df.columns:
+        _path_to_impression = dict(zip(_corpus_df["image_path"].astype(str), _corpus_df["impression"]))
 
 if "study_id" in corpus_df.columns:
     _study_id_to_impression = dict(zip(corpus_df["study_id"].astype(str), corpus_df["impression"]))
