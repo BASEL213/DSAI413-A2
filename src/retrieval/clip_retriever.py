@@ -16,14 +16,14 @@ class CLIPRetriever:
     MODEL_NAME = "ViT-L-14"
     PRETRAINED = "openai"
 
-    def __init__(self):
+    def __init__(self, device: str = None):
         import open_clip
         self.model, _, self.preprocess = open_clip.create_model_and_transforms(
             self.MODEL_NAME, pretrained=self.PRETRAINED
         )
         self.tokenizer = open_clip.get_tokenizer(self.MODEL_NAME)
         self.model.eval()
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.device = device if device else ("cuda" if torch.cuda.is_available() else "cpu")
         self.model = self.model.to(self.device)
         self._index = None
         self._image_paths: list[str] = []
