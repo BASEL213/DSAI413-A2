@@ -73,12 +73,6 @@ if os.path.exists(CORPUS_PATH):
     if "image_path" in _corpus_df.columns:
         _path_to_impression = dict(zip(_corpus_df["image_path"].astype(str), _corpus_df["impression"]))
 
-if "study_id" in corpus_df.columns:
-    _study_id_to_impression = dict(zip(corpus_df["study_id"].astype(str), corpus_df["impression"]))
-if "image_path" in corpus_df.columns:
-    _path_to_impression = dict(zip(corpus_df["image_path"].astype(str), corpus_df["impression"]))
-
-
 def _lookup_impression(image_path: str) -> str:
     """Look up impression by image_path first, then by filename stem (study_id)."""
     if image_path in _path_to_impression:
