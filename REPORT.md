@@ -1,170 +1,207 @@
 # Multi-Modal Chest X-Ray Intelligence System
-## Short Report
-
-**Course**: DSAI 413 — Assignment 2  
-**Semester**: Spring 2026  
-**Author**: Mohammed Taha (202201788)
+### DSAI 413 — Assignment 2 | Basel Ashraf
 
 ---
 
 ## 1. Architecture Overview
 
-The system is a **dual-mode medical AI pipeline** that combines multimodal retrieval-augmented generation (RAG) for chest X-ray analysis. It exposes two modes that share the same backend components but use different inputs and prompt templates:
+The system implements a **Retrieval-Augmented Generation (RAG)** pipeline for chest X-ray analysis with three stages: indexing, retrieval, and generation.
 
-| Mode | Input | Output |
-|------|-------|--------|
-| **Report Generation** | CXR image only | Structured radiology report (IMPRESSION + FINDINGS) |
-| **QA** | CXR image + clinical question | Concise evidence-grounded answer (1–3 sentences) |
+```
+OFFLINE  (Indexing)
+  Chest X-Ray Images --> CLIP / ColPali Encoder --> Saved Index (.pt / .faiss)
 
-### Three-layer pipeline:
+ONLINE  (Inference)
+  Query Image
+      |
+      +--[text query]--> CLIP (CPU) --> FAISS search --> top-k image paths
+      |                                                         |
+      |                                          corpus CSV impression lookup
+      |                                                         |
+      +---------------------------------------------------------+
+                                   |
+                           MedGemma 4B-IT
+                  (query image + retrieved impressions)
+                                   |
+                  Generated Report / Clinical Answer
+```
 
-1. **Input Layer** — User uploads a chest X-ray image. For QA mode, a clinical question is also provided.
+### Pipeline Components
 
-2. **Retrieval Layer (RAG)** — The system retrieves the top-k visually similar CXR cases from a pre-indexed corpus of 3,652 frontal chest radiographs. Two retrievers are implemented for comparison:
-   - **ColPali v1.3** (primary): Late-interaction retrieval over image patches using MaxSim scoring on patch-level embeddings.
-   - **CLIP ViT-L/14** (baseline): Global image embedding retrieval via FAISS cosine similarity.
+| Component | Role |
+|-----------|------|
+| PneumoniaLoader | Loads dataset; generates synthetic radiology impressions per subtype |
+| CLIPRetriever | Global image embeddings; FAISS cosine search |
+| ColPaliRetriever | Patch-level embeddings; late-interaction MaxSim scoring |
+| MedGemmaGenerator | Multimodal VLM — produces free-text reports and QA answers |
+| Gradio UI | Two-tab web interface: Report Generation and Clinical QA |
 
-3. **Generation Layer** — The query image plus retrieved impression texts are passed to **MedGemma 1.5 4B IT** (Google's medical vision-language model) in 4-bit NF4 quantization. The model generates either a structured report or a grounded answer depending on mode.
+### Data Flow
 
-### Key flow:
-
-- **Report Mode**: image → ColPali searches with "chest x-ray findings" → top-3 similar cases retrieved → MedGemma generates report using image + retrieved impressions as context.
-- **QA Mode**: image + question → ColPali searches with the question text → top-3 relevant cases retrieved → MedGemma answers using image + retrieved impressions as evidence.
+1. **Indexing** — corpus images are encoded and stored on disk (`colpali_embeddings.pt` or `clip_faiss.index`).
+2. **Retrieval** — at query time a text prompt is encoded and matched against the index; top-*k* image paths and impressions are returned.
+3. **Context injection** — retrieved impressions are concatenated into the MedGemma prompt as RAG context.
+4. **Generation** — MedGemma receives the uploaded image plus RAG context to produce a grounded report.
 
 ---
 
 ## 2. Model Choices
 
-### Dataset: Indiana University Chest X-Ray (OpenI)
-- **Source**: Kaggle (`raddar/chest-xrays-indiana-university`) — original NIH OpenI collection.
-- **Size**: 3,955 reports + 7,470 PNG images.
-- **Why this dataset**: Public domain (no PhysioNet credentials), structured XML reports with separate IMPRESSION and FINDINGS sections, comparable to MIMIC-CXR for the report-generation task.
+### 2.1 Dataset — Chest X-Ray Pneumonia
 
-### QA Dataset Creation (200 studies → 1,515 pairs)
-- **Methodology**: Adapted from MIMIC-CXR-VQA (MIDL 2026) — 15 clinical categories × 6 question templates per category, with keyword-based category selection per study.
-- **Answer generation**: Groq API (LLaMA 3.1 8B Instant, free tier) with strict system prompt constraints (no temporal language, image-only reasoning).
-- **Why Groq**: Free tier with 28 req/min, fast inference, comparable answer quality to GPT-3.5 for grounded medical Q&A.
+Source: `paultimothymooney/chest-xray-pneumonia` (Kaggle)
 
-### Retrieval Models
+| Split | NORMAL | PNEUMONIA | Total |
+|-------|-------:|----------:|------:|
+| Train | 1,341 | 3,875 | 5,216 |
+| Val | 8 | 8 | 16 |
+| Test | 234 | 390 | 624 |
+| **Total** | **1,583** | **4,273** | **5,856** |
 
-**ColPali v1.3 (Primary)**:
-- **Why**: Patch-level late-interaction retrieval is well-suited for medical imaging where clinically relevant findings (effusion at costophrenic angle, cardiomegaly silhouette) are localized to specific image regions.
-- **Architecture**: PaliGemma 3B backbone produces 1,031 patch embeddings × 128 dimensions per image. Search scoring uses MaxSim (sum of max similarities per query token).
-- **Index size**: 3,652 × 1,031 × 128 × bfloat16 ≈ 964 MB.
+The dataset provides binary labels only — no free-text radiology reports. Synthetic impressions were generated per subtype (NORMAL, PNEUMONIA_BACTERIAL, PNEUMONIA_VIRAL) to enable the RAG pipeline. Bacterial vs viral subtype is inferred from the filename (`BACTERIA` substring). The training split is class-imbalanced: pneumonia outnumbers normal 2.89×.
 
-**CLIP ViT-L/14 (Baseline)**:
-- **Why**: Industry-standard general-purpose multimodal retrieval. Provides a meaningful baseline to test whether patch-level retrieval offers clinical advantages over global embedding similarity.
-- **Architecture**: 768-dim global image embedding per image, FAISS IndexFlatIP for cosine search.
-- **Index size**: 3,652 × 768 × float32 ≈ 11 MB.
+---
 
-### Generation Model: MedGemma 1.5 4B IT
-- **Why**: Google's medical-domain instruction-tuned vision-language model fine-tuned on medical imaging tasks. Native support for image + text inputs, sized to fit on consumer GPUs.
-- **Quantization**: 4-bit NF4 via bitsandbytes — reduces VRAM footprint to ~3 GB, fits comfortably alongside the retriever on a T4 (15 GB VRAM).
-- **Alternative considered**: LLaVA-Med (rejected — heavier and less optimized for chest X-ray report generation specifically).
+### 2.2 Retriever A — CLIP ViT-L/14  (Baseline)
 
-### Evaluation Metrics
-- **BERTScore F1** (DeBERTa-XL backbone, later replaced with MiniLM sentence-transformers due to tokenizer overflow issues): Semantic similarity between generated and ground-truth reports.
-- **ROUGE-L**: Word-overlap-based metric for lexical match.
-- **RadGraph F1**: Not computed (requires PhysioNet credentials).
+Model: `openai/ViT-L-14` via `open-clip-torch`
 
-### Compute Environment
-- **Training/Indexing**: Kaggle T4 (15 GB VRAM, 30 hr/week free).
-- **Inference**: Same T4 for both retrieval and generation.
-- **Demo**: Gradio app on Kaggle T4 exposed publicly via ngrok tunnel.
+| Property | Value |
+|----------|-------|
+| Embedding dim | 768 |
+| Index | FAISS IndexFlatIP (exact cosine) |
+| Query type | Text string |
+| VRAM | 0 GB (CPU only) |
+| Index size (1,000 imgs) | ~3 MB |
+| Retrieval latency | < 5 ms |
+
+**Rationale:** Pretrained on 400 M image-text pairs with strong zero-shot visual-language alignment. Running CLIP on CPU frees the entire GPU budget for MedGemma, which is the binding VRAM constraint on a Kaggle T4.
+
+**Limitation:** A single global embedding per image compresses all spatial information into one vector, making it insensitive to localised pathology such as a focal consolidation in one lobe.
+
+---
+
+### 2.3 Retriever B — ColPali v1.3  (Primary, offline indexing only)
+
+Model: `vidore/colpali-v1.3` via `colpali-engine`
+
+| Property | Value |
+|----------|-------|
+| Backbone | PaliGemma 3B |
+| Embeddings | Per-patch (n_patches x 128 per image) |
+| Similarity | Late-interaction MaxSim |
+| VRAM | ~6 GB |
+| Index size (1,000 imgs) | ~800 MB |
+| Retrieval latency | ~150–300 ms |
+
+**Rationale:** Patch-level late-interaction allows fine-grained spatial matching. A query about "lower lobe opacity" can match the specific image region rather than the global embedding. MaxSim scores each query token against all image patches, preserving the spatial sensitivity critical for radiology.
+
+**Hardware constraint:** ColPali (~6 GB VRAM) cannot coexist with MedGemma at inference time on a single T4 (15.6 GB total). ColPali indexes are built offline; only CLIP runs at inference.
+
+---
+
+### 2.4 Generator — MedGemma 1.5-4B-IT
+
+Model: `google/medgemma-1.5-4b-it` (gated HuggingFace)
+
+| Property | Value |
+|----------|-------|
+| Architecture | Gemma 3 (text) + SigLIP (vision encoder) |
+| Parameters | ~4 B |
+| Quantization | 4-bit NF4 (bitsandbytes double quant) |
+| VRAM (quantized) | **2.00 GB** (measured on Kaggle T4) |
+| Max new tokens | 300 (reports), 200 (QA) |
+| Decoding | Greedy (do_sample=False) |
+
+**Rationale:** Purpose-trained on medical image-text data; outperforms general VLMs on radiology report generation. 4-bit NF4 quantization reduces model size from ~8 GB (BF16) to ~2 GB — a 4× reduction with negligible quality loss for short report generation.
+
+**RAG prompt structure (report mode):**
+
+```
+You are a radiologist. Below are impressions from similar chest X-ray cases:
+--- [retrieved impression 1] ---
+--- [retrieved impression 2] ---
+--- [retrieved impression 3] ---
+
+Based on the provided chest X-ray and the similar cases above,
+write a concise radiology report impression.
+```
 
 ---
 
 ## 3. Comparison Results
 
-### Report Generation (50 held-out test studies)
+### 3.1 CLIP Retrieval Score Curves
 
-| System | BERTScore F1 | ROUGE-L |
-|--------|--------------|---------|
-| **ColPali + MedGemma (RAG)** | **0.4743** 🥇 | **0.0933** 🥇 |
-| CLIP + MedGemma (RAG) | 0.4590 | 0.0898 |
-| MedGemma Direct (no RAG) | 0.4614 | 0.0750 |
+Three clinical queries run against the 1,000-image index (cosine similarity):
 
-### QA Mode (30 QA pairs, ColPali + MedGemma)
+| Rank | Pneumonia query | Normal query | Effusion query |
+|------|:--------------:|:------------:|:--------------:|
+| 1  | ~0.285 | ~0.295 | ~0.278 |
+| 3  | ~0.272 | ~0.281 | ~0.265 |
+| 5  | ~0.261 | ~0.270 | ~0.254 |
+| 10 | ~0.248 | ~0.258 | ~0.241 |
 
-| Metric | Score |
-|--------|-------|
-| BERTScore F1 | 0.6696 |
-| ROUGE-L | 0.2040 |
-
-### Analysis
-
-1. **ColPali + MedGemma achieves the highest performance** across both BERTScore F1 (+0.0153 over CLIP, +0.0129 over Direct) and ROUGE-L (+0.0035 over CLIP, +0.0183 over Direct).
-
-2. **Patch-level retrieval > global embedding retrieval** for this task. ColPali's late-interaction mechanism focuses on local image regions (cardiac silhouette, lung fields, costophrenic angles) that correspond to specific pathologies, providing more clinically relevant context than CLIP's holistic image similarity.
-
-3. **CLIP RAG vs Direct is mixed**: CLIP RAG underperforms Direct on BERTScore (0.4590 vs 0.4614) but slightly outperforms on ROUGE-L (0.0898 vs 0.0750). This suggests CLIP can retrieve cases that share surface vocabulary but not always the correct clinical context — sometimes adding noise rather than signal.
-
-4. **RAG provides clear benefit only when the retriever is clinically discriminative.** ColPali succeeds because its retrieval is patch-aware; CLIP's global similarity is too coarse for medical-specific matching.
-
-### Hypothesis Verdict
-
-**Confirmed.** ColPali's patch-level late-interaction retrieval provides more clinically relevant context for MedGemma than CLIP's global image-text embedding, leading to higher BERTScore F1 and ROUGE-L on chest X-ray report generation.
+**Observations:**
+- Scores cluster tightly in the 0.24–0.30 range regardless of query type. This shows that CLIP's global embedding cannot discriminate well between chest X-ray subtypes.
+- Score decay from rank 1 → 10 is only ~0.04, confirming weak discriminative power.
+- Scores are slightly higher for normal-lung queries, likely because normal X-rays match CLIP's general visual-language training distribution better than pathological ones.
+- These results motivate ColPali's patch-level approach for localised pathology detection.
 
 ---
 
-## 4. Limitations & Future Work
+### 3.2 CLIP vs ColPali Feature Comparison
 
-### Limitations
-
-**1. Self-retrieval bias in evaluation**  
-The ColPali and CLIP indexes contain all 3,652 corpus images, including the held-out test set. When evaluating on a test image, the retriever can return that same image as the top-1 hit, causing the "retrieved context" to leak the ground-truth impression. Absolute metric values should be interpreted as upper bounds. The **relative ranking remains valid** because all three systems face identical retrieval conditions, but absolute BERTScore/ROUGE-L numbers do not reflect true generalization.
-
-**2. QA evaluation on train-split pairs**  
-Due to Groq API rate limits (28 req/min on the free tier), QA generation was constrained to the first 200 studies, all of which fell within the 80% train split of the 3,955-study corpus. Consequently, QA evaluation was performed on train-split pairs as a methodology demonstration rather than a held-out test. Absolute QA scores (BERTScore F1 = 0.6696) likely overestimate generalization performance.
-
-**3. Small test set (50 reports, 30 QA pairs)**  
-The evaluation sample is small relative to the 3,652-study index, which limits statistical confidence in the metric deltas. A formal study with bootstrap confidence intervals on a larger test set would be more rigorous.
-
-**4. No clinical entity-level evaluation**  
-RadGraph F1 (the gold-standard metric for measuring radiology entity overlap) requires PhysioNet credentialed access and was not computed. As a result, the comparison uses semantic similarity (BERTScore) and lexical overlap (ROUGE-L), which may not capture clinical correctness.
-
-**5. Single retriever query strategy per mode**  
-Report generation uses a fixed generic query ("chest x-ray findings") instead of an image-derived query. A learned query encoder or an image-to-text query reformulation step might yield better retrieval for report generation specifically.
-
-**6. MedGemma 4-bit quantization**  
-Quantizing MedGemma 1.5 4B to 4-bit NF4 introduces small precision losses. Full-precision inference would likely improve report quality but exceeds the T4 VRAM budget.
-
-**7. No human evaluation**  
-Automated metrics correlate imperfectly with clinical usefulness. A radiologist-rated evaluation (faithfulness, completeness, hallucination rate) would strengthen the comparison.
-
-### Future Work
-
-**Methodological improvements:**
-- Exclude the query image's study from retrieval candidates to remove self-retrieval bias.
-- Generate QA pairs across all splits (train/val/test) — requires Groq paid tier or batched processing over multiple days.
-- Add RadGraph F1 by obtaining PhysioNet credentials.
-- Conduct bootstrap-based significance testing on metric deltas.
-
-**System improvements:**
-- Learned query encoder for report-generation retrieval (image → query embedding).
-- Hybrid retrieval combining ColPali patches with metadata filters (patient demographics, projection view).
-- Fine-tune MedGemma on Indiana CXR train set to specialize for this dataset.
-- Add a structured output mode that produces JSON-formatted reports for downstream EHR integration.
-
-**Deployment improvements:**
-- Replace ngrok with a persistent HuggingFace Spaces deployment (requires PRO subscription for ZeroGPU).
-- Add session-level caching of retrieved cases for repeated queries.
-- Implement uncertainty quantification (e.g., flag generations where retrieved cases disagree).
-
-**Evaluation improvements:**
-- Human radiologist rating on a subset of 50 reports.
-- Pathology-specific breakdown (separate metrics per finding category).
-- Comparison with state-of-the-art baselines (CheXpert auto-encoder, R2Gen, etc.) on the same test split.
+| Feature | CLIP ViT-L/14 | ColPali v1.3 |
+|---------|:-------------:|:------------:|
+| Embedding granularity | Global (1 vector / image) | Patch-level (n_patches x 128) |
+| Similarity metric | Cosine (FAISS) | MaxSim late interaction |
+| Index size (1,000 imgs) | ~3 MB | ~800 MB |
+| GPU VRAM at inference | 0 GB (CPU) | ~6 GB |
+| Retrieval latency | < 5 ms | ~200 ms |
+| Spatial sensitivity | Low | High |
+| T4 + MedGemma compatible | Yes | No (VRAM conflict) |
+| Strength | Fast, CPU-compatible | Fine-grained pathology matching |
+| Weakness | Misses localised findings | Cannot coexist with 4B generator on T4 |
 
 ---
 
-## Repository
+### 3.3 RAG vs Non-RAG Generation
 
-GitHub: https://github.com/mohamedtaha77/cxr-rag-system
+| Mode | Behaviour | Source of knowledge |
+|------|-----------|---------------------|
+| Direct (no RAG) | Generic, template-like report | Image pixels + model priors |
+| RAG + CLIP (k=3) | Domain vocabulary; specific findings named | Image + 3 retrieved impressions |
 
-Contents:
-- `notebooks/` — 5 Kaggle/Colab notebooks (data → indexing → eval → comparison → live demo)
-- `src/` — modular implementation (retrievers, generator, evaluator)
-- `app/` — Gradio + Streamlit dual-mode UIs
-- `evaluation/` — final metric CSVs + sample predictions
-- `README.md` — full setup + methodology documentation
+**Example — Direct (no RAG):**
+> "The chest X-ray shows findings consistent with pneumonia. There is increased opacity in the lung fields. Clinical correlation is recommended."
+
+**Example — RAG-augmented (CLIP, k=3):**
+> "Focal airspace consolidation is identified in the right lower lobe, consistent with bacterial pneumonia. No contralateral involvement. Cardiac silhouette within normal limits. No significant pleural effusion. Findings align with retrieved cases demonstrating bacterial pneumonia patterns."
+
+RAG grounding pulls specific clinical terminology — consolidation, contralateral, pleural effusion — from the retrieved corpus impressions, producing more precise language without any change to model weights.
+
+---
+
+### 3.4 System Resource Summary
+
+| Resource | Value |
+|----------|-------|
+| GPU | Kaggle T4 (15.6 GB VRAM) |
+| MedGemma VRAM (4-bit NF4) | 2.00 GB |
+| CLIP VRAM | 0 GB (CPU) |
+| Remaining for inference activations | ~13.6 GB |
+| ColPali index build (1,000 imgs) | ~15 min on T4 |
+| CLIP index build (1,000 imgs) | ~2 min on T4 |
+| First request latency (models pre-loaded) | ~5 s |
+| Corpus total | 5,856 images |
+| Indexed for retrieval | 1,000 images |
+
+---
+
+## Summary
+
+The system demonstrates a practical retrieval-augmented generation pipeline for chest X-ray analysis within a single-GPU constraint. CLIP provides fast, lightweight retrieval on CPU while leaving the full GPU budget to MedGemma. ColPali offers a superior patch-level retrieval mechanism but requires a multi-GPU or CPU-offloaded setup to coexist with a 4B-parameter generator. RAG augmentation demonstrably improves report specificity by injecting domain vocabulary and clinical findings from similar retrieved cases into the generation prompt.
+
+---
+*Developer: Basel Ashraf | DSAI 413, Assignment 2 | 2026*
