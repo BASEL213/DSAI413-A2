@@ -116,13 +116,14 @@ def get_generator():
 @GPU_DECORATOR
 def generate_report(image, retriever_choice, use_rag, top_k):
     if image is None:
-        return "Please upload a chest X-ray image.", None, None, None
+        return "Please upload a chest X-ray image.", None, None, None, "", "", ""
 
     image = image.convert("RGB")
     generator = get_generator()
 
     context_reports, retrieved_images = [], []
 
+    scores = []
     if use_rag:
         retriever = get_colpali() if "ColPali" in retriever_choice else get_clip()
         if "ColPali" in retriever_choice:
@@ -136,6 +137,7 @@ def generate_report(image, retriever_choice, use_rag, top_k):
                 context_reports.append(impression)
             if r.get("image"):
                 retrieved_images.append(r["image"])
+            scores.append(f"Similarity: {r.get('score', 0):.4f}")
 
     report = generator.generate_report(
         image, context_reports=context_reports if use_rag else None
@@ -143,16 +145,18 @@ def generate_report(image, retriever_choice, use_rag, top_k):
 
     while len(retrieved_images) < 3:
         retrieved_images.append(None)
+    while len(scores) < 3:
+        scores.append("")
 
-    return report, retrieved_images[0], retrieved_images[1], retrieved_images[2]
+    return report, retrieved_images[0], retrieved_images[1], retrieved_images[2], scores[0], scores[1], scores[2]
 
 
 @GPU_DECORATOR
 def answer_question(image, question, retriever_choice, top_k):
     if image is None:
-        return "Please upload a chest X-ray image.", None, None, None
+        return "Please upload a chest X-ray image.", None, None, None, "", "", ""
     if not question or not question.strip():
-        return "Please enter a clinical question.", None, None, None
+        return "Please enter a clinical question.", None, None, None, "", "", ""
 
     image = image.convert("RGB")
     generator = get_generator()
@@ -163,13 +167,14 @@ def answer_question(image, question, retriever_choice, top_k):
     else:
         results = retriever.search_by_text(question, k=int(top_k))
 
-    context_reports, retrieved_images = [], []
+    context_reports, retrieved_images, scores = [], [], []
     for r in results:
         impression = _lookup_impression(r.get("image_path", ""))
         if impression:
             context_reports.append(impression)
         if r.get("image"):
             retrieved_images.append(r["image"])
+        scores.append(f"Similarity: {r.get('score', 0):.4f}")
 
     if not context_reports:
         context_reports = ["No relevant context available."]
@@ -178,15 +183,18 @@ def answer_question(image, question, retriever_choice, top_k):
 
     while len(retrieved_images) < 3:
         retrieved_images.append(None)
+    while len(scores) < 3:
+        scores.append("")
 
-    return answer, retrieved_images[0], retrieved_images[1], retrieved_images[2]
+    return answer, retrieved_images[0], retrieved_images[1], retrieved_images[2], scores[0], scores[1], scores[2]
 
 
-# ── Gradio UI ──────────────────────────────────────────────────────────────────
+# ── Gradio UI ──────────────────────────────────────────────────────────────────────────────
 _CSS = """
 #title { text-align: center; }
 .tag  { display:inline-block; padding:1px 8px; border-radius:99px;
         font-size:.75rem; font-weight:600; margin:0 3px; }
+.score-box textarea { font-size: .75rem !important; color: #555; text-align: center; }
 """
 
 RETRIEVER_CHOICES = ["CLIP ViT-L/14 (Baseline)", "ColPali v1.3 (Primary)"]
@@ -200,6 +208,68 @@ EXAMPLE_QUESTIONS = [
     "Is there a pneumothorax present?",
 ]
 
+_INSIGHTS_MD = """
+## Dataset — Chest X-Ray Pneumonia
+| Split | NORMAL | PNEUMONIA | Total |
+|-------|-------:|----------:|------:|
+| Train | 1,341 | 3,875 | 5,216 |
+| Val   | 8 | 8 | 16 |
+| Test  | 234 | 390 | 624 |
+| **Total** | **1,583** | **4,273** | **5,856** |
+
+Pneumonia cases are split into **bacterial** (filename contains `bacteria`) and **viral** subtypes.
+The dataset is heavily imbalanced — pneumonia cases outnumber normal ~2.7× in training.
+
+---
+
+## Retrieval Model Comparison
+| Feature | CLIP ViT-L/14 | ColPali v1.3 |
+|---------|:-------------:|:------------:|
+| Embedding strategy | Global (1 vector / image) | Patch-level late interaction |
+| Query modality | Text or image | Text |
+| Similarity metric | Cosine (FAISS IndexFlatIP) | MaxSim over patches |
+| Index size (1,000 imgs) | ~3 MB | ~800 MB |
+| GPU VRAM at inference | ~1.2 GB (forced CPU here) | ~6 GB |
+| Retrieval latency | < 5 ms | ~150–300 ms |
+| Strength | Fast, general visual–language | Fine-grained patch detail |
+| Weakness | Misses local pathology patterns | Cannot coexist with MedGemma on T4 |
+
+> **Note:** On a single T4 (15.6 GB), ColPali (~6 GB) cannot load alongside MedGemma.
+> CLIP is forced to CPU in this demo so MedGemma has the full GPU budget for inference.
+
+---
+
+## Generation Model — MedGemma 1.5-4B-IT
+| Property | Value |
+|----------|-------|
+| Architecture | Gemma 3 (text) + SigLIP (vision encoder) |
+| Parameters | ~4 B |
+| Quantization | 4-bit NF4 (bitsandbytes double quant) |
+| VRAM (quantized) | ~2 GB |
+| Context window | 8,192 tokens |
+| Training data | Medical image–text pairs (Google) |
+| Access | Gated — requires HF approval |
+
+---
+
+## RAG Pipeline Architecture
+```
+Query image
+    |
+    +--► CLIP (CPU) --text query--►  FAISS index  --► top-k similar cases
+    |                                                        |
+    |                                                 synthetic impression
+    |                                                   (corpus CSV)
+    |                                                        |
+    +--------------------------------------------------------+
+                                    |
+                              MedGemma 4B IT
+                    (uploaded image + retrieved impressions)
+                                    |
+                       Generated report / clinical answer
+```
+"""
+
 with gr.Blocks(title="CXR Intelligence System", theme=gr.themes.Soft(), css=_CSS) as demo:
     gr.Markdown(
         """
@@ -212,7 +282,7 @@ with gr.Blocks(title="CXR Intelligence System", theme=gr.themes.Soft(), css=_CSS
     )
 
     with gr.Tabs():
-        # ── Tab 1: Report Generation ──────────────────────────────────────────
+        # ── Tab 1: Report Generation ──────────────────────────────────────────────────────────────────────────
         with gr.Tab("📋 Report Generation"):
             with gr.Row():
                 with gr.Column(scale=1):
@@ -234,21 +304,31 @@ with gr.Blocks(title="CXR Intelligence System", theme=gr.themes.Soft(), css=_CSS
                     )
                     gr.Markdown("**Retrieved Similar Cases (RAG Evidence)**")
                     with gr.Row():
-                        ret_img_1 = gr.Image(label="Case #1", interactive=False, height=180)
-                        ret_img_2 = gr.Image(label="Case #2", interactive=False, height=180)
-                        ret_img_3 = gr.Image(label="Case #3", interactive=False, height=180)
+                        with gr.Column(min_width=0):
+                            ret_img_1   = gr.Image(label="Case #1", interactive=False, height=180)
+                            ret_score_1 = gr.Textbox(show_label=False, lines=1, max_lines=1,
+                                                     interactive=False, elem_classes="score-box")
+                        with gr.Column(min_width=0):
+                            ret_img_2   = gr.Image(label="Case #2", interactive=False, height=180)
+                            ret_score_2 = gr.Textbox(show_label=False, lines=1, max_lines=1,
+                                                     interactive=False, elem_classes="score-box")
+                        with gr.Column(min_width=0):
+                            ret_img_3   = gr.Image(label="Case #3", interactive=False, height=180)
+                            ret_score_3 = gr.Textbox(show_label=False, lines=1, max_lines=1,
+                                                     interactive=False, elem_classes="score-box")
 
             gen_btn.click(
                 generate_report,
                 inputs=[img_input_a, retriever_a, use_rag_a, top_k_a],
-                outputs=[report_output, ret_img_1, ret_img_2, ret_img_3],
+                outputs=[report_output, ret_img_1, ret_img_2, ret_img_3,
+                         ret_score_1, ret_score_2, ret_score_3],
             )
 
-        # ── Tab 2: QA Mode ────────────────────────────────────────────────────
+        # ── Tab 2: QA Mode ────────────────────────────────────────────────────────────────────────────────────
         with gr.Tab("❓ Clinical QA"):
             with gr.Row():
                 with gr.Column(scale=1):
-                    img_input_b   = gr.Image(type="pil", label="Upload Chest X-Ray")
+                    img_input_b    = gr.Image(type="pil", label="Upload Chest X-Ray")
                     question_input = gr.Textbox(
                         label="Clinical Question",
                         placeholder="Is there evidence of pneumonia?",
@@ -271,23 +351,36 @@ with gr.Blocks(title="CXR Intelligence System", theme=gr.themes.Soft(), css=_CSS
                     )
                     gr.Markdown("**Supporting Evidence (RAG)**")
                     with gr.Row():
-                        ret_img_4 = gr.Image(label="Evidence #1", interactive=False, height=180)
-                        ret_img_5 = gr.Image(label="Evidence #2", interactive=False, height=180)
-                        ret_img_6 = gr.Image(label="Evidence #3", interactive=False, height=180)
+                        with gr.Column(min_width=0):
+                            ret_img_4   = gr.Image(label="Evidence #1", interactive=False, height=180)
+                            ret_score_4 = gr.Textbox(show_label=False, lines=1, max_lines=1,
+                                                     interactive=False, elem_classes="score-box")
+                        with gr.Column(min_width=0):
+                            ret_img_5   = gr.Image(label="Evidence #2", interactive=False, height=180)
+                            ret_score_5 = gr.Textbox(show_label=False, lines=1, max_lines=1,
+                                                     interactive=False, elem_classes="score-box")
+                        with gr.Column(min_width=0):
+                            ret_img_6   = gr.Image(label="Evidence #3", interactive=False, height=180)
+                            ret_score_6 = gr.Textbox(show_label=False, lines=1, max_lines=1,
+                                                     interactive=False, elem_classes="score-box")
 
             qa_btn.click(
                 answer_question,
                 inputs=[img_input_b, question_input, retriever_b, top_k_b],
-                outputs=[answer_output, ret_img_4, ret_img_5, ret_img_6],
+                outputs=[answer_output, ret_img_4, ret_img_5, ret_img_6,
+                         ret_score_4, ret_score_5, ret_score_6],
             )
+
+        # ── Tab 3: Insights & Comparison ──────────────────────────────────────────────────────────────────────────────
+        with gr.Tab("📊 Insights & Comparison"):
+            gr.Markdown(_INSIGHTS_MD)
 
     gr.Markdown(
         """
         ---
-        **About**: ColPali uses patch-level late-interaction retrieval over image embeddings.
-        CLIP uses global image–text embeddings as a baseline.
-        MedGemma 1.5 4B IT (4-bit quantized) generates reports and answers.
-        First request takes ~60 s while models load into GPU memory.
+        **About**: CLIP uses global image–text embeddings as the retrieval baseline (running on CPU).
+        MedGemma 1.5 4B IT (4-bit NF4 quantized, ~2 GB VRAM) generates reports and answers using
+        retrieved cases as context. Similarity scores are shown under each retrieved image.
         """
     )
 
