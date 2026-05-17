@@ -189,7 +189,7 @@ _CSS = """
         font-size:.75rem; font-weight:600; margin:0 3px; }
 """
 
-RETRIEVER_CHOICES = ["ColPali v1.3 (Primary)", "CLIP ViT-L/14 (Baseline)"]
+RETRIEVER_CHOICES = ["CLIP ViT-L/14 (Baseline)", "ColPali v1.3 (Primary)"]
 
 EXAMPLE_QUESTIONS = [
     "Is there evidence of pneumonia?",
